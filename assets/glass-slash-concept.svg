@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="580" viewBox="0 0 800 580" role="img" aria-labelledby="title desc">
+<title id="title">Glass Slash 면적 비교 개념도</title><desc id="desc">대칭인 유리 다각형을 세로로 절단해 50%씩 나누는 원리를 표현했습니다.</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#c6cdc3" stroke-width="1"/></pattern><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#dce9ae" stop-opacity=".7"/><stop offset="1" stop-color="#5d7762" stop-opacity=".18"/></linearGradient></defs>
+<rect width="800" height="580" rx="20" fill="#f7f8f3"/><rect width="800" height="580" rx="20" fill="url(#grid)"/>
+<g fill="url(#glass)" stroke="#344d39" stroke-width="3" stroke-linejoin="round"><path d="M353 110L233 150L178 285L263 420L353 445Z"/><path d="M447 110L567 150L622 285L537 420L447 445Z"/></g>
+<g stroke="#5d7762" stroke-width="1.5" opacity=".45"><path d="M233 150L353 445M178 285L353 110M447 110L537 420M447 445L622 285"/></g>
+<path d="M400 60V495" fill="none" stroke="#344d39" stroke-width="2" stroke-dasharray="8 8"/><circle cx="400" cy="60" r="7" fill="#344d39"/><circle cx="400" cy="495" r="7" fill="#344d39"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#344d39"><text x="280" y="290" font-size="46" font-weight="700">50%</text><text x="520" y="290" font-size="46" font-weight="700">50%</text><text x="400" y="550" font-size="19" letter-spacing="4">ONE CUT. TWO EQUAL AREAS.</text></g></svg>
