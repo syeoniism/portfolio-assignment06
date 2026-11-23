@@ -40,7 +40,7 @@ let dots = [];
 let frame = 0;
 
 const revealTargets = [...document.querySelectorAll(
-  ".section > .section-kicker, .about-heading, .about-copy, .section-intro, .project-meta, .phone-stage, .career-gallery, .glass-preview, .contact-inner"
+  ".section > .section-kicker, .section-intro, .project-meta, .phone-stage, .career-gallery, .glass-preview, .contact-inner"
 )];
 
 if (!reducedMotion && "IntersectionObserver" in window) {
@@ -48,7 +48,7 @@ if (!reducedMotion && "IntersectionObserver" in window) {
 
   revealTargets.forEach((target) => {
     target.classList.add("reveal-item");
-    if (target.matches(".about-copy, .phone-stage, .career-gallery")) {
+    if (target.matches(".phone-stage, .career-gallery")) {
       target.style.setProperty("--reveal-delay", "90ms");
     }
   });
