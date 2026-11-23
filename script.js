@@ -1,5 +1,5 @@
 const sections = [...document.querySelectorAll(".section")];
-const railDots = [...document.querySelectorAll(".rail-dot")];
+const navigationLinks = [...document.querySelectorAll(".main-nav a")];
 
 function updateActiveSection() {
   const activationLine = innerHeight * 0.35;
@@ -9,11 +9,11 @@ function updateActiveSection() {
     if (section.getBoundingClientRect().top <= activationLine) activeSection = section;
   });
 
-  railDots.forEach((dot) => {
-    const isActive = dot.getAttribute("href") === `#${activeSection.id}`;
-    dot.classList.toggle("is-active", isActive);
-    if (isActive) dot.setAttribute("aria-current", "location");
-    else dot.removeAttribute("aria-current");
+  navigationLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${activeSection.id}`;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
   });
 }
 
@@ -40,7 +40,7 @@ let dots = [];
 let frame = 0;
 
 const revealTargets = [...document.querySelectorAll(
-  ".section > .section-kicker, .about-heading, .about-copy, .section-intro, .project-meta, .phone-stage, .career-gallery, .glass-preview, .archive-head, .timeline-year, .contact-inner"
+  ".section > .section-kicker, .about-heading, .about-copy, .section-intro, .project-meta, .phone-stage, .career-gallery, .glass-preview, .contact-inner"
 )];
 
 if (!reducedMotion && "IntersectionObserver" in window) {
@@ -234,7 +234,7 @@ const lightbox = document.querySelector(".image-lightbox");
 if (lightbox) {
   const lightboxImage = lightbox.querySelector("img");
   const closeButton = lightbox.querySelector(".lightbox-close");
-  const projectImages = document.querySelectorAll(".phone img, .browser-shot img, .timeline-media img");
+  const projectImages = document.querySelectorAll(".phone img, .browser-shot img");
 
   projectImages.forEach((projectImage) => {
     projectImage.addEventListener("click", () => {
@@ -249,27 +249,3 @@ if (lightbox) {
     if (event.target === lightbox || event.target === lightbox.querySelector(".lightbox-inner")) lightbox.close();
   });
 }
-
-const timelineToggles = [...document.querySelectorAll(".timeline-toggle")];
-timelineToggles.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
-    const gallery = document.getElementById(toggle.getAttribute("aria-controls"));
-    const willOpen = toggle.getAttribute("aria-expanded") !== "true";
-
-    toggle.setAttribute("aria-expanded", String(willOpen));
-    gallery.hidden = !willOpen;
-  });
-});
-
-const projectDetailToggles = [...document.querySelectorAll(".project-details-toggle")];
-projectDetailToggles.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
-    const panel = document.getElementById(toggle.getAttribute("aria-controls"));
-    const willOpen = toggle.getAttribute("aria-expanded") !== "true";
-
-    toggle.setAttribute("aria-expanded", String(willOpen));
-    toggle.querySelector("span").textContent = willOpen ? "Close project details" : "View project details";
-    panel.classList.toggle("is-open", willOpen);
-    panel.setAttribute("aria-hidden", String(!willOpen));
-  });
-});
